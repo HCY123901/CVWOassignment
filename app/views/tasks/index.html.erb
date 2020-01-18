@@ -1,0 +1,41 @@
+  <%# app/views/tasks/index.html.erb %>
+
+<div class = "header" align = "center" style = "text-align:center; background-color:#87CEFA">
+<h1>My to do List</h1>
+</div>
+<div style = "text-align:center; background-color: #66B3FF">
+<%= link_to 'Add a new task', new_task_path %>
+</div>
+<div>
+<% if not (@tasks.any?) %>
+    <div style = "background-color:#87CEFA;text-align:center">
+      <h2>
+        There are not tasks currently, add a task by clicking "Add a new task".
+      </h2>
+    </div>
+<% else %>
+  <br/>
+  <table border = "1" cellspacing="10" cellpadding="5" frame = "hsides" align = "center">
+    <tr>
+      <th>Current tasks</th>
+      <th colspan = "2">Action</th>
+    </tr>
+ 
+    <% @tasks.each do |task| %>
+      <tr>
+        <td style = "background-color:#87CEFA;width:500px"><strong><%= link_to task.title, task_path(task) %><strong></td>
+        <td style = "background-color:#66B3FF"><%= link_to 'Edit', edit_task_path(task) %></td>
+        <td style = "background-color:#0080FF"><%= link_to 'Delete', task_path(task),
+              method: :delete,
+              data: { confirm: 'Are you sure to delete this task?' } %></td>
+      </tr>
+  
+    <% end %>
+  <% end %>
+</table>
+<div class = "footer" style = "background-color:#87CEFA">
+<%= link_to 'Back', welcome_index_path%>
+</div>
+</div>
+
+

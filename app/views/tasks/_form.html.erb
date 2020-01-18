@@ -1,0 +1,49 @@
+<%= form_with model: @task, local: true do |form| %>
+ 
+
+  
+
+  <div class="nav">
+  </div>
+
+  <div class="section">
+   <% if @task.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@task.errors.count, "error") %> detected:
+      </h2>
+      <ul>
+        <% @task.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+   <p>
+     <%= form.label :title %><br>
+     <%= form.text_field :title %>
+   </p>
+ 
+   <p>
+     <%= form.label :details %><br>
+     <%= form.text_area :text %>
+   </p>
+   <p>
+     <%= form.label :time %><br>
+     <%= form.text_field :time %>
+   </p>
+   <p>
+     <%= form.label :location %><br>
+     <%= form.text_field :location %>
+   </p>
+  </div>
+
+  <div class = "footer", style="background-color:#eeeeee">
+   <%= form.submit %>
+  </div>
+
+  <div class="footer">
+    <%= link_to 'Back', tasks_path %>
+  </div>
+  
+<% end %>

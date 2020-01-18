@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Todolist</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <style type = "text/css">
+    body{
+      background-color:#C4E1FF;
+    }
+.header {
+    
+    background-color:#87CEFA;
+    color:white;
+    text-align:center;
+    padding:5px;
+}
+.nav {
+    line-height:30px;
+    background-color:#eeeeee;
+    height:500px;
+    width:100px;
+    float:left;
+    padding:5px;	      
+}
+.section {
+    height:450px;
+    width:1200px;
+    float:left;
+    padding:10px;	 	 
+}
+.footer {
+    background-color:#005AB5;
+    color:white;
+    clear:both;
+    text-align:center;
+   padding:5px;	 	 
+}
+
+</style>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>
+
+
